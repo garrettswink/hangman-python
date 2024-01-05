@@ -24,14 +24,26 @@ tries = 6
 # Create an empty list to hold the game's word display
 display = []
 
-# Determine the number of letters in each word (i.e. length of each word)
+# Convert the chosen_word string to the the number of letters
 word_length = len(chosen_word)
 
+# Use a for loop and the range function to generate an underscore for each
+# Letter of the randomly generate word within the list display 
 for _ in range(word_length):
     display += "_"
 print(display)
 
+# 🔥🔥🔥 Add the while loop + clear function as last step 🔥🔥🔥
+
+guess = input("Guess a letter: ").lower()
+
+if guess in display:
+    print(f"You have already guessed {guess}! Please try again.")
 
 
 
-
+for position in range(word_length):
+    letter = chosen_word[position]
+    if letter == guess:
+        display[position] = letter
+        print(f'The letter {guess} is in the word!')
